@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>first part</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100%;
+            width: 100%;
+        }
+
+        .top-container {
+            background-color: #f1f1f1;
+            background: url("images/overlay.png");
+            padding: 30px;
+            text-align: center;
+            height: 100vh;
+        }
+
+        .header {
+            top: 0;
+            padding: 10px 16px;
+            background: #ccc;
+            color: #f1f1f1;
+        }
+
+        .second {
+            padding: 16px;
+            background: pink;
+            height: 100vh;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        .sticky + .second {
+            padding-top: 102px;
+        }
+
+        .third {
+           height: 100vh;
+            background-color: #4CDDF3;
+        }
+
+        .right-menu {
+        }
+    </style>
+</head>
+<body>
+<div class="top-container"></div>
+<div class="header" id="myHeader">
+
+    <div class="right-menu"></div>
+</div>
+
+
+<div class="second"></div>
+<div class="third"></div>
+
+<script>
+    window.onscroll = function () {
+        myFunction()
+    };
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+</script>
+
+</body>
+</html>
