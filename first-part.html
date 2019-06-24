@@ -12,8 +12,7 @@
         }
 
         .top-container {
-            background-color: #f1f1f1;
-            background: url("images/overlay.png");
+            background: #f1f1f1 url("images/overlay.png");
             padding: 30px;
             text-align: center;
             height: 100vh;
@@ -21,8 +20,9 @@
 
         .header {
             top: 0;
-            padding: 10px 16px;
-            background: #ccc;
+            height: 75px;
+            padding: 10px 22px;
+            background: #fff;
             color: #f1f1f1;
         }
 
@@ -43,22 +43,94 @@
         }
 
         .third {
-           height: 100vh;
+            height: 100vh;
             background-color: #4CDDF3;
         }
 
         .right-menu {
+            float: right;
+            display: flex;
+            flex-wrap: nowrap;
+            margin-right: 55px;
+        }
+
+        .right-menu a {
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            cursor: pointer;
+            color: #414141;
+            text-shadow: none;
+        }
+
+        .right-menu a:hover {
+            color: #4CDDF3;
+        }
+
+        .total-logo {
+            float: left;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 23px;
+            font-weight: 400;
+            text-transform: uppercase;
+            cursor: pointer;
+            line-height: 75px;
+            margin-left: 68px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .logo {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background-color: rgba(76, 221, 243, 0.5);
+            margin: 26px 7px 45px 0;
+            left: 0;
+        }
+
+        .inner-logo {
+            display: inline-block;
+            position: absolute;
+            background-color: #4cddf3;
+            width: 10px;
+            height: 10px;
+            top: 10px;
         }
     </style>
 </head>
 <body>
+<div id="home"></div>
 <div class="top-container"></div>
 <div class="header" id="myHeader">
 
-    <div class="right-menu"></div>
+    <div class="total-logo">
+        <div class="logo">
+            <div class="inner-logo">
+            </div>
+        </div>
+        <span>solido</span>
+    </div>
+    <div class="right-menu">
+        <a href="#home">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#">TEAM</a>
+        <a href="#">SERVICES</a>
+        <a href="#">PORTFOLIO</a>
+        <a href="#">CONTACT</a>
+    </div>
 </div>
 
-
+<div id="about"></div>
 <div class="second"></div>
 <div class="third"></div>
 
