@@ -4,28 +4,25 @@
     <meta charset="UTF-8">
     <title>tester</title>
     <style>
-        .tester {
-            margin: 150vh 50px;
-            height: 100px;
-        }
-
         body {
             color: #555;
         }
 
-        .tester {
+        #tester {
+            margin: 150vh 50px;
+            height: 100px;
             outline: dashed 4px salmon;
             color: salmon;
         }
 
-        .answer {
+        #answer {
             position: fixed;
             top: 35px;
             left: 0;
             right: 0;
         }
 
-        .tester, .answer {
+        #tester, #answer {
             display: flex;
             justify-content: center;
             align-items: center;
@@ -35,47 +32,27 @@
     </style>
 </head>
 <body>
-<div class='tester'>Am I in the view?</div>
-<div class='answer'>Is the div visible? No</div>
-<script>
-    const gambitGalleryIsInView = el => {
-        const scroll = window.scrollY || window.pageYOffset;
-        const boundsTop = el.getBoundingClientRect().top + scroll;
+    <div id="tester">Am I in the view?</div>
+    <div id="answer">Is the div visible? No</div>
+    <script>
+        function visible(element) {
+            const viewTop = window.scrollY;
+            const viewBottom = viewTop + window.innerHeight;
 
-        const viewport = {
-            top: scroll,
-            bottom: scroll + window.innerHeight,
-        };
+            const elementTop = element.getBoundingClientRect().top + viewTop;
+            const elementBottom = elementTop + element.clientHeight;
 
-        const bounds = {
-            top: boundsTop,
-            bottom: boundsTop + el.clientHeight,
-        };
-
-        return (bounds.bottom >= viewport.top && bounds.bottom <= viewport.bottom)
-            || (bounds.top <= viewport.bottom && bounds.top >= viewport.top);
-    };
-    // Usage.
-    document.addEventListener('DOMContentLoaded', () => {
-        const tester = document.querySelector('.tester');
-        const answer = document.querySelector('.answer');
-
-        const handler = () => raf(() => {
-            answer.innerHTML = 'Is the div visible? ' + (gambitGalleryIsInView(tester) ? 'Yes' : 'No')
-        });
-
-        handler();
-        window.addEventListener('scroll', handler)
-    });
-
-    // requestAnimationFrame
-    const raf =
-        window.requestAnimationFrame ||
-        window.webkitRequestAnimationFrame ||
-        window.mozRequestAnimationFrame ||
-        function (callback) {
-            window.setTimeout(callback, 1000 / 60)
+            return viewBottom >= elementTop && viewTop <= elementBottom;
         }
-</script>
+
+        function handler() {
+            const tester = document.getElementById("tester");
+            const answer = document.getElementById("answer");
+
+            answer.innerHTML = "Is the div visible? " + (visible(tester) ? "Yes" : "No")
+        }
+
+        window.addEventListener("scroll", handler);
+    </script>
 </body>
 </html>
