@@ -123,7 +123,7 @@
     <div class="right-menu">
         <a href="#home">HOME</a>
         <a href="#about">ABOUT</a>
-        <a href="#">TEAM</a>
+        <a href="#team">TEAM</a>
         <a href="#">SERVICES</a>
         <a href="#">PORTFOLIO</a>
         <a href="#">CONTACT</a>
@@ -131,8 +131,8 @@
 </div>
 
 <div id="about"></div>
-<div class="second"></div>
-<div class="third"></div>
+<div id="second"></div>
+<div id="third"></div>
 
 <script>
     window.onscroll = function () {
@@ -149,6 +149,31 @@
             header.classList.remove("sticky");
         }
     }
+
+    function updateNavigation() {
+        const middle = window.scrollY + window.innerHeight / 2;
+
+        const ids = ["red", "yellow", "pink", "blue"];
+
+        for (i = 0; i < ids.length; i++) {
+            document.getElementById(ids[i] + "Link").classList.remove("active");
+        }
+
+        for (i = 0; i < ids.length; i++) {
+            const element = document.getElementById(ids[i]);
+            const top = element.getBoundingClientRect().top + window.scrollY;
+
+            if (top < middle) {
+                document.getElementById(ids[i] + "Link").classList.add("active");
+
+                break;
+            }
+        }
+    }
+
+    window.onscroll = function () {
+        myFunction()
+    };
 </script>
 
 </body>

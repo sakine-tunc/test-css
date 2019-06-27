@@ -56,56 +56,56 @@
     </style>
 </head>
 <body>
-    <div id="blue"></div>
-    <div class="header" id="myHeader">
-        <h2>My Header</h2>
-        <a href="" id="blueLink">Blue</a>
-        <a href="" id="pinkLink">Pink</a>
-        <a href="" id="yellowLink">Yellow</a>
-        <a href="" id="redLink">Red</a>
-    </div>
-    <div id="pink"></div>
-    <div id="yellow"></div>
-    <div id="red"></div>
-    <script>
-        function updateNavigation() {
-            const middle = window.scrollY + window.innerHeight / 2;
+<div id="blue"></div>
+<div class="header" id="myHeader">
+    <h2>My Header</h2>
+    <a href="" id="blueLink">Blue</a>
+    <a href="" id="pinkLink">Pink</a>
+    <a href="" id="yellowLink">Yellow</a>
+    <a href="" id="redLink">Red</a>
+</div>
+<div id="pink"></div>
+<div id="yellow"></div>
+<div id="red"></div>
+<script>
+    function updateNavigation() {
+        const middle = window.scrollY + window.innerHeight / 2;
 
-            const ids = ["red", "yellow", "pink", "blue"];
+        const ids = ["red", "yellow", "pink", "blue"];
 
-            for (i = 0; i < ids.length; i++) {
-                document.getElementById(ids[i] + "Link").classList.remove("active");
-            }
-
-            for (i = 0; i < ids.length; i++) {
-                const element = document.getElementById(ids[i]);
-                const top = element.getBoundingClientRect().top + window.scrollY;
-
-                if (top < middle) {
-                    document.getElementById(ids[i] + "Link").classList.add("active");
-
-                    break;
-                }
-            }
+        for (i = 0; i < ids.length; i++) {
+            document.getElementById(ids[i] + "Link").classList.remove("active");
         }
 
-        window.onscroll = function () {
-            myFunction()
-        };
+        for (i = 0; i < ids.length; i++) {
+            const element = document.getElementById(ids[i]);
+            const top = element.getBoundingClientRect().top + window.scrollY;
 
-        var header = document.getElementById("myHeader");
-        var sticky = header.offsetTop;
+            if (top < middle) {
+                document.getElementById(ids[i] + "Link").classList.add("active");
 
-        function myFunction() {
-            if (window.pageYOffset > sticky) {
-                header.classList.add("sticky");
-            } else {
-                header.classList.remove("sticky");
+                break;
             }
         }
+    }
 
-        window.addEventListener("scroll", updateNavigation);
-        window.addEventListener("resize", updateNavigation);
-    </script>
+    window.onscroll = function () {
+        myFunction()
+    };
+
+    const header = document.getElementById("myHeader");
+    const sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+
+    window.addEventListener("scroll", updateNavigation);
+    window.addEventListener("resize", updateNavigation);
+</script>
 </body>
 </html>

@@ -4,120 +4,195 @@
     <meta charset="UTF-8">
     <title>index</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100%;
+
+        .header {
+            top: 0;
+            height: 75px;
+            padding: 10px 22px;
+            background: #fff;
+            color: #f1f1f1;
+        }
+
+
+        .right-menu {
+            float: right;
+            display: flex;
+            flex-wrap: nowrap;
+            margin-right: 55px;
+        }
+
+        .right-menu a {
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            cursor: pointer;
+            color: #414141;
+            text-shadow: none;
+        }
+
+        .right-menu a:hover {
+            color: #4CDDF3;
+        }
+
+        .total-logo {
+            float: left;
+            color: #000;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 23px;
+            font-weight: 400;
+            text-transform: uppercase;
+            cursor: pointer;
+            line-height: 75px;
+            margin-left: 68px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .logo {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            position: absolute;
+            background-color: rgba(76, 221, 243, 0.5);
+            margin: 26px 7px 45px 0;
+            left: 0;
+        }
+
+        .inner-logo {
+            display: inline-block;
+            position: absolute;
+            background-color: #4cddf3;
+            width: 10px;
+            height: 10px;
+            top: 10px;
+        }
+
+        .sticky {
+            position: fixed;
+            top: 0;
             width: 100%;
         }
 
-        .portfolio {
-            display: grid;
-            grid-template-rows: 1fr 1fr 1fr;
-            grid-template-columns: 1fr 1fr 1fr;
-            row-gap: 10px;
-            min-width: 100%;
-            background-color: #F7F7F7;
+        #home {
+            height: 100vh;
+            background-color: red;
         }
 
-        .text {
-            grid-column: 1/4;
-            grid-row: 1;
-            text-align: center;
-            color: #858686;
+        #about {
+            height: 100vh;
+            background-color: yellowgreen;
         }
 
-        .header-text {
-            font-size: 37px;
-            letter-spacing: 5px;
-            padding: 120px 0 30px;
-            text-transform: uppercase;
-            font-weight: 300;
-            font-family: 'Open Sans', sans-serif;
-            line-height: 1.4;
+        #team {
+            height: 100vh;
+            background-color: purple;
         }
 
-        .text-hr {
-            width: 100px;
-            border: 1px solid #4CDDF3;
-            margin-bottom: 50px;
+        #services {
+            height: 100vh;
+            background-color: green;
         }
 
-        .sub-text {
-            font-size: 17px;
-            font-family: 'Open Sans', sans-serif;
-            width: 680px;
-            margin: 50px auto;
+        #portfolio {
+            height: 100vh;
+            background-color: blue;
         }
 
-        .next-featured {
-            grid-column: 2;
-            grid-row: 2;
+        #contact {
+            height: 100vh;
+            background-color: brown;
         }
 
-        .prev {
-            cursor: pointer;
-            float: left;
-            background: url("images/f-prev.png") no-repeat #e1e1e1;
-            width: 30px;
-            height: 57px;
-            margin-left: 110px;
+        .sticky + #about + #team + #services + #portfolio + #contact {
+            padding-top: 102px;
         }
 
-
-        .go-portfolio {
-            color: #fff;
-            margin-top: 4px;
-            font-size: 14px;
-            text-transform: uppercase;
-            font-weight: 400;
-            text-align: center;
-            font-family: 'Open Sans', sans-serif;
-            background: #4cddf3;
-            border-radius: 25px;
-            padding: 13px 25px 13px;
-            letter-spacing: 1px;
-            transition: all 0.1s ease-in-out;
-            border: none;
-            outline: none;
-            margin-left: 50px;
+        .right-menu a.active {
+            color: #4CDDF3;;
         }
 
-        .next {
-            cursor: pointer;
-            float: right;
-            background: url("images/f-next.png") no-repeat #e1e1e1;
-            width: 30px;
-            height: 57px;
-            margin-left: 110px;
+        .header a {
+            color: black;
         }
-
-        .next:hover, .prev:hover {
-            background-color: #4CDDF3;
-        }
-
     </style>
 </head>
 <body>
+<div id="home"></div>
+<div class="header" id="myHeader">
 
-<section class="portfolio">
-    <div class="text">
-        <div class="header-text">FEATURED WORKS</div>
-        <hr class="text-hr">
-        <span class="sub-text">
-        Visuals work in every language. We communicate in images where words fail to transmit our message. Keep it simple.
-        </span>
-    </div>
-    <div class="next-featured">
-        <div class="prev">
+    <div class="total-logo">
+        <div class="logo">
+            <div class="inner-logo">
+            </div>
         </div>
-        <button class="go-portfolio">
-            GO PORTFOLIO
-        </button>
-        <div class="next">
-        </div>
+        <span>solido</span>
     </div>
-</section>
+    <div class="right-menu">
+        <a href="#home" id="homeLink">HOME</a>
+        <a href="#about" id="aboutLink">ABOUT</a>
+        <a href="#team" id="teamLink">TEAM</a>
+        <a href="#services" id="servicesLink">SERVICES</a>
+        <a href="#portfolio" id="portfolioLink">PORTFOLIO</a>
+        <a href="#contact" id="contactLink">CONTACT</a>
+    </div>
+</div>
 
+
+<div id="about"></div>
+<div id="team"></div>
+<div id="services"></div>
+<div id="portfolio"></div>
+<div id="contact"></div>
 </body>
+<script>
+    window.onscroll = function () {
+        myFunction()
+    };
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    function myFunction() {
+        if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+        } else {
+            header.classList.remove("sticky");
+        }
+    }
+
+    function updateNavigation() {
+        const middle = window.scrollY + window.innerHeight / 2;
+
+        const ids = ["contact", "portfolio", "services", "team", "about", "home"];
+
+        for (i = 0; i < ids.length; i++) {
+            document.getElementById(ids[i] + "Link").classList.remove("active");
+        }
+
+        for (i = 0; i < ids.length; i++) {
+            const element = document.getElementById(ids[i]);
+            const top = element.getBoundingClientRect().top + window.scrollY;
+
+            if (top < middle) {
+                document.getElementById(ids[i] + "Link").classList.add("active");
+
+                break;
+            }
+        }
+    }
+
+    window.onscroll = function () {
+        myFunction()
+    };
+
+    window.addEventListener("scroll", updateNavigation);
+    window.addEventListener("resize", updateNavigation);
+</script>
 </html>
