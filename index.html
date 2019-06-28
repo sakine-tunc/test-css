@@ -5,6 +5,12 @@
     <title>index</title>
     <style>
 
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
         .header {
             top: 0;
             height: 75px;
@@ -80,11 +86,6 @@
             width: 100%;
         }
 
-        #home {
-            height: 100vh;
-            background: red;
-        }
-
         #about {
             height: 100vh;
             background-color: yellowgreen;
@@ -122,12 +123,48 @@
             color: black;
         }
 
+        #home {
+            height: 100vh;
+            position: relative;
+            padding-bottom: 20px;
+            border: 1px solid red;
+        }
+
+        .prev, .next {
+            border: none;
+            background: #37f;
+            font-size: 30px;
+            color: white;
+            position: absolute;
+            padding: 40px;
+        }
+
+        .next {
+            border-radius: 10px 0;
+            margin-left: 950px;
+            right: 67px;
+            background: url("images/s-next.png") no-repeat;
+            top: 45%;
+        }
+
+        .prev {
+            background: url("images/s-prev.png") no-repeat;
+            left: 30px;
+            top: 45%;
+        }
+
     </style>
 </head>
 <body>
 <div id="home">
+    <div id="box">
+        <img src="images/b.jpg" alt="overlay">
+    </div>
 
+    <a class="prev" onclick="nextImage()"></a>
+    <a class="next" onclick="prevImage()"></a>
 </div>
+
 <div class="header" id="myHeader">
     <div class="total-logo">
         <div class="logo">
@@ -169,6 +206,8 @@
         }
     }
 
+    let i;
+
     function updateNavigation() {
         const middle = window.scrollY + window.innerHeight / 2;
 
@@ -196,5 +235,31 @@
 
     window.addEventListener("scroll", updateNavigation);
     window.addEventListener("resize", updateNavigation);
+
+    const sliderContent = document.getElementById('box');
+    const images = ['a', 'b', 'c'];
+
+    i = images.length;
+
+    function nextImage() {
+        if (i < images.length) {
+            i = i + 1;
+        } else {
+            i = 1;
+        }
+
+        sliderContent.innerHTML = "<img src=images/" + images[i - 1] + ".jpg alt='slider images'>";
+
+    }
+
+    function prevImage() {
+        if (i < images.length + 1 && i > 1) {
+            i -= 1;
+        } else {
+            i = images.length;
+        }
+
+        sliderContent.innerHTML = "<img src=images/" + images[i - 1] + ".jpg alt='slider images'>";
+    }
 </script>
 </html>
