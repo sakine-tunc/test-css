@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>animation part</title>
-    <style type="text/css">
+    <title>Title</title>
+    <style>
         .animation {
-            animation: moveInTop 1s ease-out;
+            animation: moveInTop ease-in-out 1s;
         }
 
         @keyframes moveInTop {
@@ -14,20 +14,52 @@
                 transform: translateX(10px);
             }
 
-
             80% {
                 transform: translateY(-5px);
             }
+
+            100% {
+                opacity: 1;
+            }
         }
 
+        p {
+            opacity: 0;
+
+        }
     </style>
 </head>
 <body>
-<div class="animation">
-    xxxxxxxxxxx
-</div>
-<div class="animation">
-    yyyyyyyyy
-</div>
+    <p id="p1" class="animation invisible">
+        xxx xxx xxx
+    </p>
+
+    <p id="p2" class="invisible">
+        yyy yyy yyy
+    </p>
+
+    <p id="p3" class="invisible">
+        zzz zzz zzz
+    </p>
+    <script>
+        const p1 = document.getElementById("p1");
+        const p2 = document.getElementById("p2");
+        const p3 = document.getElementById("p3");
+
+        p1.addEventListener("animationend", function () {
+            p1.classList.remove("animation");
+            p2.classList.add("animation")  ;
+        });
+
+        p2.addEventListener("animationend", function () {
+            p2.classList.remove("animation");
+            p3.classList.add("animation")  ;
+        });
+
+        p3.addEventListener("animationend", function () {
+            p3.classList.remove("animation");
+            p1.classList.add("animation")  ;
+        });
+    </script>
 </body>
 </html>
