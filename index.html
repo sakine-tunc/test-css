@@ -127,7 +127,6 @@
             height: 100vh;
             position: relative;
             padding-bottom: 20px;
-            border: 1px solid red;
         }
 
         .prev, .next {
@@ -153,16 +152,121 @@
             top: 45%;
         }
 
+        #box {
+            position: relative;
+        }
+
+        #box img {
+            position: page;
+            top: 0;
+            left: 0;
+            min-width: 100%;
+            height: 755px;
+        }
+
+        .hello {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 22px;
+            font-style: italic;
+        }
+
+        .animation {
+            animation: moveInTop ease-in-out 1s;
+        }
+
+        @keyframes moveInTop {
+            0% {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+
+            80% {
+                transform: translateY(-5px);
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        p {
+            opacity: 0;
+
+        }
+
+        .invisible {
+            position: absolute;
+            top: 35%;
+            left: 30%;
+            animation-duration: 3s;
+            font-size: 84px;
+            animation-delay: 0ms;
+            color: #fff;
+        }
+
+        .blue-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 50px;
+            height: 2px;
+            border: none;
+            background-color: #4CDDF3;
+        }
+
+        .text {
+            color: #fff;
+            position: absolute;
+            top: 53%;
+            left: 30%;
+            text-align: center;
+        }
+
+        .get-started {
+            text-decoration: none;
+            position: absolute;
+            left: 48%;
+            top: 60%;
+            border: 2px solid #4CDDF3;
+            padding: 5px;
+            color: #fff;
+        }
+
+        .get-started:hover {
+            border: 2px solid #fff;
+        }
     </style>
 </head>
 <body>
 <div id="home">
     <div id="box">
         <img src="images/b.jpg" alt="overlay">
-    </div>
+        <span class="hello">Hello</span>
+        <p id="p1" class="animation invisible">
+            WE ARE SMART
+        </p>
 
+        <p id="p2" class="invisible">
+            WE ARE FRESH
+        </p>
+
+        <p id="p3" class="invisible">
+            WE ARE SOLIDO
+        </p>
+        <hr class="blue-line">
+        <span class="text">
+            We build perfection, so you can get a product which complies with our quality standarts.<br>
+            Take action & keep it simple.
+        </span>
+        <a href="#about" class="get-started">GET STARTED</a>
+    </div>
     <a class="prev" onclick="nextImage()"></a>
     <a class="next" onclick="prevImage()"></a>
+
 </div>
 
 <div class="header" id="myHeader">
@@ -261,5 +365,24 @@
 
         sliderContent.innerHTML = "<img src=images/" + images[i - 1] + ".jpg alt='slider images'>";
     }
+
+    const p1 = document.getElementById("p1");
+    const p2 = document.getElementById("p2");
+    const p3 = document.getElementById("p3");
+
+    p1.addEventListener("animationend", function () {
+        p1.classList.remove("animation");
+        p2.classList.add("animation");
+    });
+
+    p2.addEventListener("animationend", function () {
+        p2.classList.remove("animation");
+        p3.classList.add("animation");
+    });
+
+    p3.addEventListener("animationend", function () {
+        p3.classList.remove("animation");
+        p1.classList.add("animation");
+    });
 </script>
 </html>
